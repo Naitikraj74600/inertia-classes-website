@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fee Management - Inertia Classes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/assets/logo.jpg" alt="INERTIA CLASSES Logo" id="logo" />
+    <h1 class="institute-name">INERTIA CLASSES</h1>
+    <nav>
+      <a href="index.html">Admission Form</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Enter Fee Details</h2>
+      <form id="feeForm">
+        <label for="studentId">Student ID:</label><br/>
+        <input type="text" id="studentId" name="studentId" required /><br/>
+
+        <label for="amountPaid">Amount Paid:</label><br/>
+        <input type="number" id="amountPaid" name="amountPaid" required /><br/>
+
+        <label for="totalFee">Total Fee:</label><br/>
+        <input type="number" id="totalFee" name="totalFee" required /><br/>
+
+        <button type="submit">Save Fee Details</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Students Fee Details</h2>
+      <table id="feeTable" border="1" cellpadding="5" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Amount Paid</th>
+            <th>Total Fee</th>
+            <th>Dues</th>
+            <th>Print</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Fee details will be populated here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="fee-management.js"></script>
+</body>
+</html>

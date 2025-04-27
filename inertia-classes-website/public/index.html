@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inertia Classes Admission Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/assets/logo.jpg" alt="INERTIA CLASSES Logo" id="logo" />
+    <h1 class="institute-name">INERTIA CLASSES</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Admission Form</a></li>
+        <li><a href="fee-management.html">Fee Management</a></li>
+        <li><a href="student-management.html">Student Management</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Inertia Classes Admission Form</h1>
+    <form id="admissionForm">
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" />
+      <div class="photo-preview" id="photoPreview"></div>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="parentName">Parent/Guardian Name:</label>
+      <input type="text" id="parentName" name="parentName" required />
+
+      <label for="parentContact">Parent/Guardian Contact:</label>
+      <input type="tel" id="parentContact" name="parentContact" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="schoolCollegeName">School/College Name:</label>
+      <input type="text" id="schoolCollegeName" name="schoolCollegeName" />
+
+      <label for="course">Course Interested:</label>
+      <select id="course" name="course" required>
+        <option value="">--Select Course--</option>
+        <optgroup label="Class 6 to 8">
+          <option value="Class 6 - CBSE">Class 6 - CBSE</option>
+          <option value="Class 7 - CBSE">Class 7 - CBSE</option>
+          <option value="Class 8 - CBSE">Class 8 - CBSE</option>
+          <option value="Class 6 - BSEB">Class 6 - BSEB</option>
+          <option value="Class 7 - BSEB">Class 7 - BSEB</option>
+          <option value="Class 8 - BSEB">Class 8 - BSEB</option>
+        </optgroup>
+        <optgroup label="Class 9 to 10">
+          <option value="Class 9 - CBSE">Class 9 - CBSE</option>
+          <option value="Class 10 - CBSE">Class 10 - CBSE</option>
+          <option value="Class 9 - BSEB">Class 9 - BSEB</option>
+          <option value="Class 10 - BSEB">Class 10 - BSEB</option>
+        </optgroup>
+        <optgroup label="Class 11 to 12">
+          <option value="Class 11 - Science">Class 11 - Science</option>
+          <option value="Class 12 - Science">Class 12 - Science</option>
+          <option value="Class 11 - Commerce">Class 11 - Commerce</option>
+          <option value="Class 12 - Commerce">Class 12 - Commerce</option>
+          <option value="Class 11 - Arts">Class 11 - Arts</option>
+          <option value="Class 12 - Arts">Class 12 - Arts</option>
+        </optgroup>
+        <optgroup label="ISC">
+          <option value="ISC Science">ISC Science</option>
+          <option value="ISC Commerce">ISC Commerce</option>
+          <option value="ISC Arts">ISC Arts</option>
+        </optgroup>
+      </select>
+
+      <div class="form-buttons">
+        <button type="submit">Submit Admission</button>
+        <button type="button" id="printAdmissionBtn">Print Admission</button>
+      </div>
+    </form>
+    <div id="message"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
