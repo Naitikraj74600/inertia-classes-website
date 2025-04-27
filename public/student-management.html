@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Management - Inertia Classes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/logo.jpg" alt="Inertia Classes Logo" id="logo" style="width: 120px; display: block; margin-bottom: 10px;" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Admission Form</a></li>
+        <li><a href="fee-management.html">Fee Management</a></li>
+        <li><a href="student-management.html" class="active">Student Management</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Student Management</h1>
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Course</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Student rows will be populated here -->
+      </tbody>
+    </table>
+  </main>
+  <script src="student-management.js"></script>
+</body>
+</html>
