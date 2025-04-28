@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="container">
           <div class="watermark"></div>
           <div class="institute-details">
-            <img src="/assets/logo.jpg" alt="Institute Logo" style="height: 100px; display: block; margin: 0 auto 10px auto;" />
+            <img src="assets/logo.jpg" alt="Institute Logo" style="height: 100px; display: block; margin: 0 auto 10px auto;" />
             <h1 style="font-family: 'Georgia', serif; font-size: 3rem; font-weight: bold; text-transform: uppercase; color: #004080; margin: 0;">${instituteDetails.name}</h1>
             <p>${instituteDetails.address}</p>
             <p>${instituteDetails.contact}</p>
