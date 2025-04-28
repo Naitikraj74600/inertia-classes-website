@@ -8,17 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   admissionForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Convert photo file to base64
-    const photoFile = admissionForm.photo.files[0];
-    let photoBase64 = '';
-    if (photoFile) {
-      photoBase64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-        reader.readAsDataURL(photoFile);
-      });
-    }
+    // Removed photo file reading and base64 conversion
 
     const formData = {
       name: admissionForm.name.value,
@@ -29,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       email: admissionForm.email.value,
       phone: admissionForm.phone.value,
       schoolCollegeName: admissionForm.schoolCollegeName.value,
-      course: admissionForm.course.value,
-      photo: photoBase64
+      course: admissionForm.course.value
+      // Removed photo from formData
     };
 
     try {
@@ -45,8 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         messageDiv.textContent = 'Admission submitted successfully! Your ID: ' + result.id;
         lastAdmittedStudent = { ...formData, admissionDate: new Date().toLocaleDateString(), id: result.id };
         admissionForm.reset();
-        // Clear photo preview
-        document.getElementById('photoPreview').innerHTML = '';
       } else {
         messageDiv.textContent = 'Failed to submit admission.';
       }
@@ -138,6 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
             background: rgba(255, 255, 255, 0.8);
             z-index: 1;
           }
+          .photo-placeholder {
+            width: 160px;
+            height: 200px;
+            border: 2px dashed #000;
+            margin: 20px auto;
+            display: block;
+          }
         </style>
       </head>
       <body>
@@ -149,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${instituteDetails.address}</p>
             <p>${instituteDetails.contact}</p>
           </div>
+          <div class="photo-placeholder" title="Paste Passport Size Photo Here"></div>
           <h2>Admission Details</h2>
           <table>
             <tbody>
