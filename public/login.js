@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (response.ok) {
-        // Redirect to dashboard on successful login
+        // Store login status and redirect to dashboard on successful login
+        sessionStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'dashboard.html';
       } else {
         const result = await response.json();

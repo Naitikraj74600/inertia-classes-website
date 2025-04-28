@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Redirect to login if not logged in
+  if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+    return;
+  }
   const feeForm = document.getElementById('feeForm');
   const feeTableBody = document.querySelector('#feeTable tbody');
 

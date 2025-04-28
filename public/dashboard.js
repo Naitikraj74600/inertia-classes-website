@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Redirect to login if not logged in
+  if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+    return;
+  }
   const totalStudentsSpan = document.getElementById('totalStudents');
   const totalFeesSpan = document.getElementById('totalFees');
   const admissionsTableBody = document.querySelector('#admissionsTable tbody');

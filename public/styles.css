@@ -208,6 +208,30 @@ table tr:nth-child(even) {
     flex-direction: column;
     gap: 10px;
   }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"],
+  form input[type="date"],
+  form select,
+  form textarea,
+  form input[type="number"],
+  form input[type="file"] {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 14px 18px;
+  }
+
+  form button {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1.1rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 /* Passport size photo space for print */
@@ -248,12 +272,5 @@ table tr:nth-child(even) {
 
 /* Animated coaching logo placeholder */
 .coaching-logo {
-  width: 120px;
-  height: 120px;
-  margin: 20px auto;
-  background: url('/assets/logo.jpg') no-repeat center center;
-  background-size: contain;
-  animation: logoPulse 4s infinite;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 64, 128, 0.5);
+  display: none;
 }
