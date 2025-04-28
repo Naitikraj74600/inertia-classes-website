@@ -197,3 +197,18 @@ table tr:nth-child(even) {
     gap: 10px;
   }
 }
+
+/* Passport size photo space for print */
+.passport-photo-space {
+  width: 3.5cm;
+  height: 4.5cm;
+  border: 2px dashed #000;
+  margin: 0 0 20px 20px;
+  float: right;
+  text-align: center;
+  line-height: 4.5cm;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #555;
+  font-family: Arial, sans-serif;
+}

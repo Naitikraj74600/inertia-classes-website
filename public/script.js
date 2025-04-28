@@ -8,18 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   admissionForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Convert photo file to base64
-    const photoFile = admissionForm.photo.files[0];
-    let photoBase64 = '';
-    if (photoFile) {
-      photoBase64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-        reader.readAsDataURL(photoFile);
-      });
-    }
-
     const formData = {
       name: admissionForm.name.value,
       dob: admissionForm.dob.value,
@@ -29,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       email: admissionForm.email.value,
       phone: admissionForm.phone.value,
       schoolCollegeName: admissionForm.schoolCollegeName.value,
-      course: admissionForm.course.value,
-      photo: photoBase64
+      course: admissionForm.course.value
     };
 
     try {
@@ -45,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         messageDiv.textContent = 'Admission submitted successfully! Your ID: ' + result.id;
         lastAdmittedStudent = { ...formData, admissionDate: new Date().toLocaleDateString(), id: result.id };
         admissionForm.reset();
-        // Clear photo preview
-        document.getElementById('photoPreview').innerHTML = '';
       } else {
         messageDiv.textContent = 'Failed to submit admission.';
       }
@@ -138,6 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
             background: rgba(255, 255, 255, 0.8);
             z-index: 1;
           }
+          .passport-photo-space {
+            width: 3.5cm;
+            height: 4.5cm;
+            border: 2px dashed #000;
+            margin: 0 0 20px 20px;
+            float: right;
+            text-align: center;
+            line-height: 4.5cm;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #555;
+            font-family: Arial, sans-serif;
+          }
         </style>
       </head>
       <body>
@@ -149,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>${instituteDetails.address}</p>
             <p>${instituteDetails.contact}</p>
           </div>
+          <div class="passport-photo-space">Paste Passport Size Photo Here</div>
           <h2>Admission Details</h2>
           <table>
             <tbody>
