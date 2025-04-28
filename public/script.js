@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   printAdmissionBtn.addEventListener('click', () => {
+    // Detect mobile devices
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      alert('Printing is not supported on smartphones. Please use a desktop or laptop to print.');
+      return;
+    }
+
     const printWindow = window.open('', '', 'width=800,height=1000');
     const formData = lastAdmittedStudent || {
       name: admissionForm.name.value,
@@ -66,81 +73,113 @@ document.addEventListener('DOMContentLoaded', () => {
       <html>
       <head>
         <title>Print Admission</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            position: relative;
-            margin: 0;
-          }
-          .container {
-            border: 3px solid #000;
-            padding: 20px;
-            position: relative;
-            height: 950px;
-            box-sizing: border-box;
-          }
-          h1, h2 {
-            text-align: center;
-            margin: 0;
-          }
-          .institute-details {
-            text-align: center;
-            margin-bottom: 20px;
-          }
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-          }
-          th, td {
-            border: 1px solid #000;
-            padding: 8px 12px;
-            text-align: left;
-          }
-          th {
-            background-color: #f2f2f2;
-          }
-          .watermark {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 72px;
-            color: rgba(0, 0, 0, 0.1);
-            user-select: none;
-            pointer-events: none;
-            z-index: 0;
-          }
-          .stamp {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            border: 2px solid #000;
-            padding: 10px 20px;
-            font-weight: bold;
-            font-size: 14px;
-            background: rgba(255, 255, 255, 0.8);
-            z-index: 1;
-          }
-          .passport-photo-space {
-            width: 3.5cm;
-            height: 4.5cm;
-            border: 2px dashed #000;
-            margin: 0 0 20px 20px;
-            float: right;
-            text-align: center;
-            line-height: 4.5cm;
-            font-weight: bold;
-            font-size: 0.9rem;
-            color: #555;
-            font-family: Arial, sans-serif;
-          }
-        </style>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              padding: 15px;
+              position: relative;
+              margin: 0;
+              font-size: 14px;
+            }
+            .container {
+              border: 2px solid #000;
+              padding: 15px;
+              position: relative;
+              box-sizing: border-box;
+              max-height: 850px;
+              height: 80vh;
+            }
+            h1, h2 {
+              text-align: center;
+              margin: 8px 0;
+              font-size: 22px;
+            }
+            .institute-details {
+              text-align: center;
+              margin-bottom: 15px;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 15px;
+              font-size: 14px;
+            }
+            th, td {
+              border: 1px solid #000;
+              padding: 8px 10px;
+              text-align: left;
+            }
+            th {
+              background-color: #f2f2f2;
+            }
+            .watermark {
+              display: none;
+            }
+            .stamp {
+              position: relative;
+              bottom: auto;
+              right: auto;
+              border: 2px solid #000;
+              padding: 8px 12px;
+              font-weight: bold;
+              font-size: 14px;
+              background: rgba(255, 255, 255, 0.8);
+              z-index: 1;
+              margin-top: 15px;
+              text-align: right;
+            }
+            .passport-photo-space {
+              width: 3.5cm;
+              height: 4.5cm;
+              border: 2px dashed #000;
+              margin: 0 0 15px 0;
+              display: block;
+              text-align: center;
+              line-height: 4.5cm;
+              font-weight: bold;
+              font-size: 0.9rem;
+              color: #555;
+              font-family: Arial, sans-serif;
+            }
+            .signature {
+              margin-top: 15px;
+              text-align: right;
+              font-family: 'Georgia', serif;
+              font-size: 1rem;
+              font-weight: bold;
+              border-top: 2px solid #000;
+              width: 180px;
+              padding-top: 5px;
+              margin-right: 10px;
+            }
+            @media (max-width: 600px) {
+              .container {
+                height: auto;
+                padding: 10px;
+              }
+              .stamp {
+                font-size: 12px;
+                padding: 8px 12px;
+                margin-top: 15px;
+              }
+              .passport-photo-space {
+                width: 3cm;
+                height: 4cm;
+                line-height: 4cm;
+                font-size: 0.8rem;
+                margin: 0 0 15px 0;
+              }
+              .signature {
+                width: 150px;
+                margin-right: 10px;
+                font-size: 1rem;
+              }
+            }
+          </style>
       </head>
       <body>
         <div class="container">
-          <div class="watermark">${instituteDetails.name}</div>
+          <div class="watermark"></div>
           <div class="institute-details">
             <img src="/assets/logo.jpg" alt="Institute Logo" style="height: 100px; display: block; margin: 0 auto 10px auto;" />
             <h1 style="font-family: 'Georgia', serif; font-size: 3rem; font-weight: bold; text-transform: uppercase; color: #004080; margin: 0;">${instituteDetails.name}</h1>
@@ -164,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </tbody>
           </table>
           <div class="stamp">Admission Date: ${formData.admissionDate}</div>
+          <div class="signature">Authorized Signature</div>
         </div>
       </body>
       </html>
