@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Inertia Classes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/assets/logo.jpg" alt="INERTIA CLASSES Logo" id="logo" />
+    <h1 class="institute-name">INERTIA CLASSES</h1>
+    <div class="coaching-logo"></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Admission Form</a></li>
+        <li><a href="fee-management.html">Fee Management</a></li>
+        <li><a href="student-management.html">Student Management</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Dashboard</h1>
+    <section id="summary">
+      <h2>Summary</h2>
+      <div>Total Students Admitted: <span id="totalStudents">Loading...</span></div>
+      <div>Total Fees Collected: <span id="totalFees">Loading...</span></div>
+    </section>
+    <section id="recentAdmissions">
+      <h2>Recent Admissions</h2>
+      <table id="admissionsTable" border="1" cellpadding="5" cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Admission Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="recentFees">
+      <h2>Recent Fee Transactions</h2>
+      <table id="feesTable" border="1" cellpadding="5" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Student ID</th>
+            <th>Amount Paid</th>
+            <th>Transaction Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

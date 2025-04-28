@@ -107,6 +107,25 @@ app.get('/api/fees/:studentId', (req, res) => {
   res.json(studentFees);
 });
 
+// Get all fee details
+app.get('/api/fees/all', (req, res) => {
+  const fees = readJSONFile(FEE_FILE);
+  res.json(fees);
+});
+
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  // Hardcoded credentials for demo purposes
+  const validUsername = 'admin';
+  const validPassword = 'password123';
+
+  if (username === validUsername && password === validPassword) {
+    res.json({ message: 'Login successful' });
+  } else {
+    res.status(401).json({ message: 'Invalid username or password' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
